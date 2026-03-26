@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "framework": "react",
+  "framework": "create-react-app",
   "buildCommand": "cd frontend && npm ci && npm run build",
   "outputDirectory": "frontend/build",
   "rewrites": [
