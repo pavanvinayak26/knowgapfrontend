@@ -1,7 +1,8 @@
 import axios from "axios";
 import authHeader from "./auth-header";
+import API_BASE_URL from "./api-base";
 
-const API_URL = "http://localhost:8086/api/";
+const API_URL = `${API_BASE_URL}/api/`;
 
 const getSubjects = () => {
   return axios.get(API_URL + "subjects", { headers: authHeader() });

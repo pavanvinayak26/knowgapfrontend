@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import API_BASE_URL from "../services/api-base";
 
 const Home = () => {
   const [content, setContent] = useState("");
 
   useEffect(() => {
     // We can fetch public content here if available
-    fetch('http://localhost:8086/api/home')
+    fetch(`${API_BASE_URL}/api/home`)
       .then(res => res.text())
       .then(data => setContent(data))
       .catch(err => console.error("Error fetching API:", err));
