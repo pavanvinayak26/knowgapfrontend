@@ -10,9 +10,7 @@
     }
   ],
   "env": {
-    "REACT_APP_API_BASE_URL": {
-      "description": "Backend API URL (e.g., https://knowgap-backend.onrender.com)"
-    }
+    "REACT_APP_API_BASE_URL": ""
   },
   "headers": [
     {
