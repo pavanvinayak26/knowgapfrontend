@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "framework": "react",
+  "buildCommand": "cd frontend && npm ci && npm run build",
+  "outputDirectory": "frontend/build",
+  "rootDirectory": ".",
+  "public": false,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "env": {
+    "REACT_APP_API_BASE_URL": {
+      "description": "Backend API URL (e.g., https://knowgap-backend.onrender.com)"
+    }
+  },
+  "headers": [
+    {
+      "source": "/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
