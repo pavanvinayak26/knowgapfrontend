@@ -51,15 +51,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors(cors -> cors.configurationSource(
-                    new org.springframework.web.cors.UrlBasedCorsConfigurationSource() {{
-                        org.springframework.web.cors.CorsConfiguration config = new org.springframework.web.cors.CorsConfiguration();
-                        config.setAllowedOrigins(java.util.List.of("http://localhost:3001"));
-                        config.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-                        config.setAllowedHeaders(java.util.List.of("*"));
-                        config.setAllowCredentials(true);
-                        registerCorsConfiguration("/**", config);
-                    }}))
+        http.cors(org.springframework.security.config.Customizer.withDefaults())
             .csrf(csrf -> csrf.disable())
             .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
